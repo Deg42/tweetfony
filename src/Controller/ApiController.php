@@ -12,6 +12,22 @@ use App\Entity\User;
 class ApiController extends AbstractController
 {
 
+    function index()
+    {
+        $result = array();
+        $result['users'] = $this->generateUrl(
+            'api_get_users',
+            array(),
+            UrlGeneratorInterface::ABSOLUTE_URL
+        );
+        $result['tweets'] = $this->generateUrl(
+            'api_get_tweets',
+            array(),
+            UrlGeneratorInterface::ABSOLUTE_URL
+        );
+        return new JsonResponse($result);
+    }
+
     function getTweet($id)
     {
         // Obtenemos el tweet
@@ -66,6 +82,22 @@ class ApiController extends AbstractController
         $result->id = $user->getId();
         $result->name = $user->getName();
         $result->username = $user->getUsername();
+
+        // Para enlazar a los tweets que ha escrito, añadimos sus enlaces API.
+        $result->tweets = array();
+        foreach ($user->getTweets() as $tweet) {
+            $result->tweets[] = $this->generateUrl('api_get_tweet', [
+                'id' => $tweet->getId(),
+            ], UrlGeneratorInterface::ABSOLUTE_URL);
+        }
+
+        // Igualmente, añadimos el enlace API de los likes para consultar su información.
+        $result->likes = array();
+        foreach ($user->getLikes() as $like) {
+            $result->likes[] = $this->generateUrl('api_get_tweet', [
+                'id' => $like->getId(),
+            ], UrlGeneratorInterface::ABSOLUTE_URL);
+        }
 
         // Devolvemos el resultado en formato JSON
         return new JsonResponse($result);
@@ -127,9 +159,9 @@ class ApiController extends AbstractController
         // Añadimos cada resultado al array de los resultados
         foreach ($users as $user) {
             $result = new \stdClass();
-            $result->id = $user->getName();
+            $result->name = $user->getName();
             $result->url = $this->generateUrl('api_get_user', [
-                'id' => $result->id,
+                'id' => $user->getId(),
             ], UrlGeneratorInterface::ABSOLUTE_URL);
 
             array_push($results->results, $result);
@@ -139,19 +171,4 @@ class ApiController extends AbstractController
         return new JsonResponse($results);
     }
 
-    function index()
-    {
-        $result = array();
-        $result['users'] = $this->generateUrl(
-            'api_get_users',
-            array(),
-            UrlGeneratorInterface::ABSOLUTE_URL
-        );
-        $result['tweets'] = $this->generateUrl(
-            'api_get_tweets',
-            array(),
-            UrlGeneratorInterface::ABSOLUTE_URL
-        );
-        return new JsonResponse($result);
-    }
 }
