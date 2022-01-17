@@ -12,8 +12,6 @@ use App\Entity\User;
 class ApiController extends AbstractController
 {
 
-
-
     function getTweet($id)
     {
         // Obtenemos el tweet
@@ -139,5 +137,21 @@ class ApiController extends AbstractController
 
         // Devolvemos el resultado en formato JSON
         return new JsonResponse($results);
+    }
+
+    function index()
+    {
+        $result = array();
+        $result['users'] = $this->generateUrl(
+            'api_get_users',
+            array(),
+            UrlGeneratorInterface::ABSOLUTE_URL
+        );
+        $result['tweets'] = $this->generateUrl(
+            'api_get_tweets',
+            array(),
+            UrlGeneratorInterface::ABSOLUTE_URL
+        );
+        return new JsonResponse($result);
     }
 }

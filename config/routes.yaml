@@ -1,12 +1,17 @@
 index:
-    path: /
-    controller: App\Controller\TweetController::index
+  path: /
+  controller: App\Controller\TweetController::index
 
 ver_tweet:
-    path: /tweet/{id}
-    controller: App\Controller\TweetController::verTweet
+  path: /tweet/{id}
+  controller: App\Controller\TweetController::verTweet
 
 # API
+
+api_index:
+  path: /api
+  controller: App\Controller\ApiController::index
+  methods: ["GET"]
 
 api_get_tweet:
   path: /api/tweets/{id}
