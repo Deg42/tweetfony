@@ -1,4 +1,4 @@
-# tweetfony
+RequestCollection.json# tweetfony
 
 ## Instalación del proyecto:
 
@@ -8,3 +8,7 @@
 4. Ejecutar ``php bin/console doctrine:migrations:migrate`` para ejecutar las migraciones
 5. Copiar el pack de datos iniciales
 6. Ejecutar ``php bin/console doctrine:fixtures:load`` para cargar los datos de ejemplo.
+
+## Realizar tests de solicitudes
+Para realizar test es necesario [Postman](https://www.postman.com/downloads/). \
+Importar el archivo [RequestCollection.json](test/RequestCollection.json) encontrado en la carpeta test.
