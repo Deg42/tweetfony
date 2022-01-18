@@ -11,4 +11,4 @@ RequestCollection.json# tweetfony
 
 ## Realizar tests de solicitudes
 Para realizar test es necesario [Postman](https://www.postman.com/downloads/). \
-Importar el archivo [RequestCollection.json](test/RequestCollection.json) encontrado en la carpeta test.
+Importar el archivo [RequestCollection.json](https://github.com/Deg42/tweetfony/blob/main/tests/RequestCollection.json) encontrado en la carpeta test.
