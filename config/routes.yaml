@@ -32,3 +32,13 @@ api_get_users:
   path: /api/users
   controller: App\Controller\ApiController::getAllTweetfonyUsers
   methods: ["GET"]
+
+api_post_tweet:
+  path: /api/tweets
+  controller: App\Controller\ApiController::postTweet
+  methods: ["POST"]
+
+api_post_user:
+  path: /api/users
+  controller: App\Controller\ApiController::postTweetfonyUser
+  methods: ["POST"]
