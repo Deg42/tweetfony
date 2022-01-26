@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e2481de6-42d1-41bc-98f4-2bc06e78af28",
+		"_postman_id": "6a6e6831-62ef-47ed-b585-3f91c1568a5d",
 		"name": "Tweetfony",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -290,6 +290,73 @@
 					"path": [
 						"api",
 						"tweets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Juan Antonio",
+							"type": "default"
+						},
+						{
+							"key": "userName",
+							"value": "Deg42",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutTweet",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "text",
+							"value": "Tweet Edit",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/tweets/23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tweets",
+						"23"
 					]
 				}
 			},

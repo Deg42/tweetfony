@@ -1,5 +1,3 @@
-RequestCollection.json# tweetfony
-
 ## Instalación del proyecto:
 
 1. Clonar el repositorio.
