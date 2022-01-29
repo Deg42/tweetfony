@@ -32,26 +32,6 @@
 			"response": []
 		},
 		{
-			"name": "AllUsers",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8000/api/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "AllTweets",
 			"request": {
 				"method": "GET",
@@ -72,12 +52,12 @@
 			"response": []
 		},
 		{
-			"name": "User",
+			"name": "AllUsers",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/users/1",
+					"raw": "http://localhost:8000/api/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -85,8 +65,7 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"users",
-						"1"
+						"users"
 					]
 				}
 			},
@@ -114,12 +93,12 @@
 			"response": []
 		},
 		{
-			"name": "UserNotFound",
+			"name": "User",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/users/e",
+					"raw": "http://localhost:8000/api/users/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -128,7 +107,7 @@
 					"path": [
 						"api",
 						"users",
-						"e"
+						"1"
 					]
 				}
 			},
@@ -156,27 +135,12 @@
 			"response": []
 		},
 		{
-			"name": "NewUser",
+			"name": "UserNotFound",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "name",
-							"value": "name example",
-							"type": "default"
-						},
-						{
-							"key": "userName",
-							"value": "UsernameExample",
-							"type": "default"
-						}
-					]
-				},
 				"url": {
-					"raw": "http://localhost:8000/api/users",
+					"raw": "http://localhost:8000/api/users/e",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -184,42 +148,8 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "NewUserAlreadyExists",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "name",
-							"value": "Bill Gates 2",
-							"type": "default"
-						},
-						{
-							"key": "userName",
-							"value": "BillGates",
-							"type": "default"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"users"
+						"users",
+						"e"
 					]
 				}
 			},
@@ -261,6 +191,41 @@
 			"response": []
 		},
 		{
+			"name": "NewUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "name example",
+							"type": "default"
+						},
+						{
+							"key": "userName",
+							"value": "UsernameExample",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "NewTweetNotUserFound",
 			"request": {
 				"method": "POST",
@@ -290,6 +255,41 @@
 					"path": [
 						"api",
 						"tweets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewUserAlreadyExists",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Bill Gates 2",
+							"type": "default"
+						},
+						{
+							"key": "userName",
+							"value": "BillGates",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
 					]
 				}
 			},
@@ -357,6 +357,48 @@
 						"api",
 						"tweets",
 						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTweet",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/tweets/24",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"tweets",
+						"24"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/users/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"11"
 					]
 				}
 			},
