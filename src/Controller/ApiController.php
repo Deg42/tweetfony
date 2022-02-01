@@ -338,8 +338,8 @@ class ApiController extends AbstractController
         $entityManager->remove($tweet);
         $entityManager->flush();
 
-        // Devolvemos el resultado de todos los tweets
-        return $this->getAllTweets();
+        // Devolvemos una respuesta vacía
+        return new JsonResponse(null, 204);
     }
 
     function deleteTweetfonyUser($id)
@@ -355,7 +355,7 @@ class ApiController extends AbstractController
         $entityManager->remove($user);
         $entityManager->flush();
 
-        // Devolvemos el resultado de todos los usuarios
-        return $this->getAllTweetfonyUsers();
+        // Devolvemos una respuesta vacía
+        return new JsonResponse(null, 204);
     }
 }
